@@ -12,7 +12,7 @@
 </div>
 
 <!-- 主题预览图 -->
-![](https://img.picui.cn/free/2024/07/07/668a46dd254be.png)
+![](https://cdn.anorange.icu/blog/screenshot-1720338238655.png-webp)
 
 ## 🔥 预览
 
