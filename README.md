@@ -1,10 +1,8 @@
-# halo-theme-gridx
- 一个简单的Halo2.0个人博客主题
 <div align="center">
 <!-- 主题Logo -->
-<img width="100px" src="https://api.minio.yyds.pink/moony/files/2024/04/halo-theme-hao-sbxqdmuv.png">
+<img width="100px" src="https://img.picui.cn/free/2024/07/02/6683c35eec355.png">
 <!-- 主题名称 -->
-<h1>Halo-Theme-Hao</h1>
+<h1>Halo-Theme-GrixX</h1>
 <!-- 快捷导航 -->
 <p align="center">
 
@@ -14,7 +12,7 @@
 </div>
 
 <!-- 主题预览图 -->
-![](https://redirect.cnkj.site:8099/b/2024/66177ca6056fd.webp?type=blog)
+![](https://img.picui.cn/free/2024/07/07/668a46dd254be.png)
 
 ## 🔥 预览
 
