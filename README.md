@@ -2,7 +2,7 @@
 <!-- 主题Logo -->
 <img width="100px" src="https://img.picui.cn/free/2024/07/02/6683c35eec355.png">
 <!-- 主题名称 -->
-<h1>Halo-Theme-GrixX</h1>
+<h1>Halo-Theme-GridX</h1>
 <!-- 快捷导航 -->
 <p align="center">
 
