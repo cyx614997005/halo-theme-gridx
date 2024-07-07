@@ -50,7 +50,7 @@
 如果你对主题有什么建议或者意见，欢迎提 PR & issue。
 进群。
 
-<img width="360" src="https://api.minio.yyds.pink/halo-docs/2024/04/hao-2.jpg" />
+<img width="360" src="https://img.picui.cn/free/2024/07/07/668a49dc1334a.jpg" />
 
 > 卖服务器的广告人，就不要加了。
 
