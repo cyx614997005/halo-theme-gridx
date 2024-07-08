@@ -6,8 +6,6 @@
 <!-- 快捷导航 -->
 <p align="center">
 
-[主题预览](#-预览) | [使用文档](https://github.com/cyx614997005/halo-theme-gridx) | [加入我们](#-讨论)
-
 </p>
 </div>
 
@@ -44,20 +42,6 @@
 - Markdown / HTML 内容块插件 [plugin-hybrid-edit-block](https://www.halo.run/store/apps/app-NgHnY)
 
 > 更多插件请参见：https://github.com/halo-sigs/awesome-halo
-
-## 💬 讨论
-
-如果你对主题有什么建议或者意见，欢迎提 PR & issue。
-进群。
-
-<img width="360" src="https://img.picui.cn/free/2024/07/07/668a49dc1334a.jpg" />
-
-> 卖服务器的广告人，就不要加了。
-
-## 💰赞助
-
-**如果 Halo-theme-gridx 主题对你有帮助，欢迎赞助相关开发者**
-* 小橙同学: [爱发电赞助](https://afdian.net/a/anorange2023)
 
 ## 🔐 许可
 
