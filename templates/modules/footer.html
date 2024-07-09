@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+    <th:block th:fragment="footer">
+        <footer class="footer-area">
+            <div class="container">
+                <div class="footer-content text-center">
+                    <a href="index.html" class="logo">
+                        <img th:src="${theme.config.footer.logo}" alt="Logo">
+                    </a>
+                    <div th:with="menu = ${menuFinder.getByName(theme.config.footer.Menu)}">
+                        <ul th:with="menuItems = ${menu.menuItems}" class="footer-menu">
+                          <li th:each="menuItem : ${menuItems}">
+                            <a
+                              th:href="@{${menuItem.status.href}}"
+                              th:text="${menuItem.status.displayName}"
+                              th:target="${menuItem.spec.target?.value}"
+                            >
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div>               
+                        <a th:href="${theme.config.footer.icpurl}" target="_blank" style="color:#676767 ;font-size: 0.8rem">
+                            <img th:src="${theme.config.footer.icpimg}" width="1.3%">
+                            [[${theme.config.footer.icp}]]
+                        </a>&nbsp;&nbsp;
+                        <a th:href="${theme.config.footer.gonganurl}" target="_blank" style="color:#676767 ;font-size: 0.8rem">
+                            <img th:src="${theme.config.footer.gonganimg}" width="1.4%">
+                            [[${theme.config.footer.gongan}]]
+                        </a>     
+                    </div>
+                    <br>
+                    <p class="copyright">
+                        &copy; All rights reserved by <a href="/">[[${site.title}]]</a>
+                    </p>
+                   
+                </div>
+            </div>
+        </footer>
+
+
+    </th:block>
+</html>

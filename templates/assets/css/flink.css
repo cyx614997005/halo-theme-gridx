@@ -1,0 +1,85 @@
+/* 友链间距 */
+.flink#article-container .flink-list {
+    padding: 0;
+    margin: 0.5rem -6px 1rem -6px;
+}
+
+.flink#article-container .flink-title {
+    color: #ffffff;
+    padding: 0;
+    margin-bottom: 1.5rem;
+    
+}
+
+
+.flink#article-container .flink-desc {
+    margin: 0;
+    margin-bottom: 0.9rem;
+}
+
+.flink#article-container .flink-list-item{
+    display: inline-block;
+    padding: 0;
+    margin: 0.5rem 0px 1.5rem 20px;
+    width: calc(32% - 10px);
+}
+
+
+/* 友情描述 */
+.flink#article-container .flink-list > .flink-list-item a .flink-item-desc {
+    color:#9f9f9f;
+    white-space: normal;
+    padding: 5px 10px 16px 0;
+    text-align: left;
+    height: 40px;
+    
+}
+
+/* 友链背景 */
+.flink-list-item .flink-item-image {
+    opacity: 0.1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 友链标题 */
+.flink-list-item .flink-item-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: calc(100% - 1px);
+    height: fit-content;
+}
+
+
+.flink#article-container .flink-list > .flink-list-item a .flink-item-name {
+    color: #ffffff;
+    text-align: left;
+    font-size: 19px;
+    line-height: 20px;
+}
+
+
+.flink#article-container .flink-list > .flink-list-item a {
+    display: flex;
+    border: none;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+
+/* 友链头像 */
+.flink#article-container .flink-list > .flink-list-item a img {
+    border-radius: 32px;
+    margin: 15px 20px 15px 15px;
+    width: 80px;
+    height: 80px;
+}
+
+

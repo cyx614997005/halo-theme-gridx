@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: html(head = null,content = ~{::content},title = ${singlePage.spec.title + ' - ' + site.title})}">
+
+    <th:block th:fragment="content">
+        <main class="main-homepage">
+            <!-- Header -->
+            <th:block th:replace="~{modules/header :: header}"></th:block>
+            <!-- About -->
+            <section class="service-area">
+                <div class="container">
+                    <div class="row">
+                        <!-- Sidebar -->
+                        <div class="col-md-4" data-aos="zoom-in">
+                            <div class="aos-init aos-animate" data-aos="fade-right">
+                                <div class="info-box shadow-box text-center">
+                                    <img th:src="${theme.config.banner.Information.headimg}" style="border-radius: 30px;">
+                                        <h2 class="text-white">[[${theme.config.banner.Information.nickname}]]</h2>
+                                            <p>[[${theme.config.banner.Information.toptitle}]]</p>
+                                            <hr>
+                                            <button type="button" class="btn btn-primary" role="button" onclick="promptUserToAddBookmark()">Ctrl+D 订阅本站</button>  
+  
+                                            <script>  
+                                            function promptUserToAddBookmark() {  
+                                                alert('请按 Ctrl+D 将此页面添加到您的书签中！');  
+                                            }  
+                                            </script>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Content -->
+                        <div class="col-md-8" data-aos="zoom-in">
+                            <h1 class="section-heading aos-init aos-animate" data-aos="fade-up"><img th:src="@{/assets/images/star-2.png}">[[${theme.config.about.title}]]<img th:src="@{/assets/images/star-2.png}"></h1>
+                            <div class="service-content-wrap aos-init aos-animate" data-aos="zoom-in">
+                                <div class="service-content-inner shadow-box">
+                                    <div class="service-items info-box">
+                                        <div class="shadow-box service-itemlong text-white" style="background-image:linear-gradient(90deg,#4facfe ,#00f2fe 100%);" th:utext="${theme.config.about.content}">
+                                        </div>
+                                        <div class="service-item">
+                                            <img th:src="${theme.config.about.authorCareersPhoto}" class="box-img">
+                                        </div>
+                                        <div class="service-item" th:utext="${theme.config.about.zuoyouming}">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+    
+    
+                    <div class="row mt-24" data-aos="zoom-in">
+                        <div class="d-flex profile-contact-credentials-wrap gap-24" style="height: 290px;">
+                            <div data-aos="zoom-in" class="col-md-5 aos-init aos-animate">
+                                <div class="h-100 info-box shadow-box">
+                                    <img th:src="${theme.config.about.music.music_bg}" class="box-img">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                    <p class="text-white">[[${theme.config.about.music.music_tips}]]</p>
+                                        <a th:href="${theme.config.about.music.music_link}" class="about-btn">
+                                            <img th:src="@{/assets/images/icon.svg}">
+                                        </a>
+                                    </div>
+                                    <h1 class="text-white">[[${theme.config.about.music.music_title}]]</h1>
+                                </div>
+                            </div>
+                            <div data-aos="zoom-in" class="flex-fill aos-init aos-animate">
+                                <div class="about-contact-box info-box shadow-box">
+                                    <img th:src="${theme.config.about.map.background}" class="box-img">
+                                    <span class="map-title">我现在住在
+                                        <b th:text="${theme.config.about.map.StrengthenTitle}"></b>
+                                    </span>
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-24" data-aos="zoom-in">
+                        <div class="d-flex profile-contact-credentials-wrap gap-24" style="height: 300px;">
+                            <div data-aos="zoom-in" class="col-md-12 aos-init aos-animate">
+                                <div class="h-100 info-box shadow-box">
+                                    <div th:utext="${theme.config.about.xllc}"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <!-- Footer -->
+            <footer th:replace="~{modules/footer :: footer}"></footer>
+        </main>
+    </th:block>
+</html>

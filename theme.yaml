@@ -1,0 +1,43 @@
+apiVersion: theme.halo.run/v1alpha1
+kind: Theme
+metadata:
+  name: theme-gridx
+spec:
+  displayName: GridX
+  author:
+    name: 小橙同学
+    website: "https://anorange.icu"
+  customTemplates:
+    page:
+      - name: 关于页面模版
+        description: 关于页面
+        screenshot:
+        file: about.html
+      - name: 友链页面模版
+        description: 友链页面
+        screenshot:
+        file: links.html
+      - name: 我的自述页面模版
+        description: 我的自述页面
+        screenshot:
+        file: credentials.html
+      - name: 相册页面模版
+        description: 相册页面
+        screenshot:
+        file: photos.html
+      - name: 留言页面模版
+        description: 留言页面
+        screenshot:
+        file: comments.html       
+  description: 一个简单的Halo2.0个人博客主题
+  logo: "https://img.picui.cn/free/2024/07/02/6683c35eec355.png"
+  website: "https://anorange.icu"
+  repo: "https://github.com/cyx614997005/halo-theme-gridx"
+  issues: "https://github.com/cyx614997005/halo-theme-gridx/issues"
+  settingName: "theme-gridx-setting"
+  configMapName: "theme-gridx-configMap"
+  version: "1.0"
+  require: ">=2.15.0"
+  license:
+    - name: "GPL-3.0"
+      url: "https://github.com/halo-sigs/theme-foo/blob/main/LICENSE"

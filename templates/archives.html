@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{layout :: html(head = null,content = ~{::content},title = ${'我的文章' + ' - ' + site.title})}"
+>
+  <th:block th:fragment="content">
+    <main class="main-workdetails-page">
+       <!-- Header -->
+       <th:block th:replace="~{modules/header :: header}"></th:block>
+       <!-- <articles> -->
+      <section class="blog-area">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-8" data-aos="zoom-in">
+                    <ul th:with="posts = ${postFinder.listAll()}">
+                      <li th:each="post : ${posts}">
+                        <div class="blog-items">
+                          <div class="blog-item aos-init aos-animate" data-aos="zoom-in">
+                              <div class="img-box">
+                                <img th:src="@{${post.spec.cover}}" style="border-radius: 15px">
+                              </div>
+                              <div class="content">
+                                <span style="color:#676767"><i class="fa-solid fa-pen-nib"> [[${post.owner.displayName}]]</i></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span class="post-meta-date" style="color:#676767">
+                                  <i class="fa-regular fa-calendar-days"></i>
+                                  <time th:attr="datetime=${#dates.format(post.spec.publishTime, 'yyyy-MM-dd')}"
+                                        th:text="${#dates.format(post.spec.publishTime,'yyyy/MM/dd')}"
+                                        th:title="${#dates.format(post.spec.publishTime,'yyyy-MM-dd HH:mm:ss')}">
+                                  </time>
+                                </span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span th:each="category : ${post.categories}"
+                                      th:if="${not #lists.isEmpty(post.categories)}" style="color:#676767"><i class="fa-solid fa-list">  </i>
+                                  <a style="color:#676767" th:href="@{${category.status.permalink}}"
+                                      th:text="${category.spec.displayName}" th:title="${category.spec.displayName}">
+                                  </a>
+                                </span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span h:if="${not #lists.isEmpty(post.tags)}">
+                                  <a th:each="tag : ${post.tags}"
+                                     th:href="@{${tag.status.permalink}}"
+                                     th:title="${tag.spec.displayName}">
+                                    <span style="color:#676767"><i class="fa-solid fa-tag"></i>  [[${tag.spec.displayName}]]</span>
+                                  </a>
+                                </span>
+                                <h1 style="margin-top: 20px;"><a th:href="@{${post.status.permalink}}" th:text="${post.spec.title}"></a></h1>
+                                <p th:text="@{${post.status.excerpt}}"></p>
+                                <a th:href="@{${post.status.permalink}}" class="theme-btn" style="margin-bottom: 20px;">阅读更多</a>
+                              </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>        
+                  </div>
+                  <!-- <侧边栏> -->
+                  <div class="col-md-4" data-aos="zoom-in">
+                      <div class="blog-sidebar">
+                          <div class="blog-sidebar-inner">
+                            <!-- <个人信息>   -->
+                            <div class="blog-sidebar-widget search-widget">
+                              <div class="blog-sidebar-widget-inner aos-init aos-animate" data-aos="zoom-in">
+                                  <div class="shadow-box archives-center">
+                                      <div class="img-box img-archbox">
+                                          <img th:src="${theme.config.banner.Information.headimg}" style="border-radius: 30px">
+                                      </div>
+                                      <h2 class="color1 juli">[[${theme.config.banner.Information.nickname}]]</h2>
+                                      <p style="padding-bottom: 30px;padding-top: 20px;">[[${theme.config.banner.Information.toptitle}]]</p>
+                                  </div>
+                              </div>
+                            </div>
+                              <!-- <最近发布文章> -->
+                              <div class="blog-sidebar-widget recent-post-widget aos-init aos-animate" data-aos="zoom-in">
+                                  <div class="blog-sidebar-widget-inner shadow-box">
+                                      <h3><i class="fa-regular fa-map"></i>  最近发布</h3>
+                                      <ul th:with="posts = ${postFinder.list(1,4)}" class="aside-list-item">
+                                        <li th:each="post : ${posts.items}">
+                                          <!-- <img th:src="${post.spec.cover}"> -->
+                                          <a th:href="@{${post.status.permalink}}" th:text="${post.spec.title}">
+                                            
+                                          </a>
+                                        </li>
+                                      </ul>
+                                  </div>
+                              </div>
+                              <!-- <分类> -->
+                              <div class="blog-sidebar-widget tags-widget aos-init" data-aos="zoom-in">
+                                  <div class="blog-sidebar-widget-inner shadow-box">
+                                      <h3><i class="fa-solid fa-list"></i>  分类</h3>
+                                      <ul th:with="categories = ${categoryFinder.listAll()}">
+                                        <li th:each="category : ${categories}">
+                                          <a class="theme-btn" th:href="@{${category.status.permalink}}" th:text="${category.spec.displayName}"></a>
+                                        </li>
+                                      </ul>
+                                  </div>
+                              </div>
+                              <!-- <标签> -->
+                              <div class="blog-sidebar-widget tags-widget aos-init" data-aos="zoom-in">
+                                  <div class="blog-sidebar-widget-inner shadow-box">
+                                      <h3><i class="fa-solid fa-tags"></i>  标签</h3>
+                                      <ul th:with="tags = ${tagFinder.listAll()}">
+                                        <li th:each="tag : ${tags}">
+                                          <a class="theme-btn" th:href="@{${tag.status.permalink}}" th:text="${tag.spec.displayName}"></a>
+                                        </li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      
+      <!-- Footer -->
+      <footer th:replace="~{modules/footer :: footer}"></footer>
+  </main>
+  </th:block>
+</html>

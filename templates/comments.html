@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{layout :: html(head = null,content = ~{::content},title = ${singlePage.spec.title + ' - ' + site.title})}"
+>
+  <th:block th:fragment="content">
+    <main class="main-homepage">
+      <!-- Header -->
+        <th:block th:replace="~{modules/header :: header}"></th:block>
+        <!-- Comments -->
+        <div class="container">
+            <div id="prompt1" class="aos-init aos-animate" data-aos="zoom-in" th:utext="${theme.config.comments.text1}"></div>
+            <br>
+            <div id="prompt2" data-aos="zoom-in" th:utext="${theme.config.comments.text2}"></div>
+        <!-- 评论 -->
+        <div th:if="${haloCommentEnabled}" class="commentroot commentauto shadow-box juli" data-aos="zoom-in">
+            <div style="color:white;"><i class="fa-regular fa-comments"></i><span style="font-size:20px;"> 评论</span><a href="/privacy" style="float: right;font-size: 13px;">隐私政策</a></div><br>
+              <halo:comment
+                    group="content.halo.run"
+                    kind="SinglePage"
+                    th:attr="name=${singlePage.metadata.name}"
+               />
+            <link rel="stylesheet" th:href="@{/assets/css/comment.css}" />
+        </div>
+      <!-- Footer -->
+        <th:block th:replace="~{modules/footer :: footer}"></th:block>
+      </main>
+  </th:block>
+</html>

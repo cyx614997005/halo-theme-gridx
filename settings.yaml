@@ -1,0 +1,542 @@
+apiVersion: v1alpha1
+kind: Setting
+metadata:
+  name: theme-gridx-setting
+spec:
+  forms:
+    - group: nav
+      label: 导航
+      formSchema:
+        - $formkit: attachment
+          name: logo
+          label: 左侧LOGO
+          value: "https://img.picui.cn/free/2024/07/02/6683f3224ea7a.png"
+        - $formkit: menuRadio
+          name: Menu
+          label: 菜单选项
+          help: 默认只有主菜单，可前往【外观】—>【菜单】新建菜单组
+          value: ""
+          
+    - group: banner
+      label: 卡片
+      formSchema:
+        - $formkit: group
+          name: Information
+          label: 博主信息
+          value:
+          children:
+            - $formkit: attachment
+              name: headimg
+              label: 头像
+              value: "https://img.picui.cn/free/2024/07/02/6683da3d20226.jpg"
+              placeholder: 请输入头像图片路径
+            - $formkit: text
+              name: nickname
+              label: 昵称
+              value: "小橙同学."
+              placeholder: 请输入博主昵称
+            - $formkit: textarea
+              name: toptitle
+              label: 个人简介
+              value: "分享设计与科技生活"
+            - $formkit: textarea
+              name: geyantitle
+              label: 格言
+              value: "这个世界需要能努力让它前进的人，但是它更希望拥有能冷静思考的人。"
+              help: 支持HTML语法
+            - $formkit: attachment
+              name: backgroundimg
+              label: 背景图片
+              value: "https://img.picui.cn/free/2024/07/02/6683da3d20226.jpg"
+              placeholder: 请输入背景图片路径
+            - $formkit: url
+              name: jumpurl
+              label: 跳转地址
+              value: "/about"
+              placeholder: 请输入卡片单击跳转地址
+        - $formkit: textarea
+          name: eannouncement
+          label: 滚动公告内容
+          value: "欢迎大家来的小橙同学的个人博客，本博客将持续更新，欢迎大家来评论！"
+        - $formkit: group
+          name: card1
+          label: 卡片1
+          value:
+          children:
+            - $formkit: attachment
+              name: img
+              label: 图片
+              value: "https://img.picui.cn/free/2024/07/02/6683f8cb99ff4.png"
+              placeholder: 请输入图片路径
+            - $formkit: text
+              name: smalltitle
+              label: 小标题
+              value: "生涯"
+            - $formkit: text
+              name: bigtitle
+              label: 大标题
+              value: "无限进步"
+            - $formkit: url
+              name: jumpurl
+              label: 跳转地址
+              value: "/credentials"
+              placeholder: 请输入卡片单击跳转地址
+        - $formkit: group
+          name: card2
+          label: 卡片2
+          value:
+          children:
+            - $formkit: attachment
+              name: img
+              label: 图片
+              value: "https://img.picui.cn/free/2024/07/06/66891ca64f0c4.png"
+              placeholder: 请输入图片路径
+            - $formkit: text
+              name: smalltitle
+              label: 小标题
+              value: "展示"
+            - $formkit: text
+              name: bigtitle
+              label: 大标题
+              value: "我的图库"
+            - $formkit: url
+              name: jumpurl
+              label: 跳转地址
+              value: "/photos"
+              placeholder: 请输入卡片单击跳转地址
+        - $formkit: group
+          name: card3
+          label: 卡片3
+          value:
+          children:
+            - $formkit: attachment
+              name: img
+              label: 图片
+              value: "https://img.picui.cn/free/2024/07/06/66891b9ae36f6.png"
+              placeholder: 请输入图片路径
+            - $formkit: text
+              name: smalltitle
+              label: 小标题
+              value: "博客"
+            - $formkit: text
+              name: bigtitle
+              label: 大标题
+              value: "我的文章"
+            - $formkit: url
+              name: jumpurl
+              label: 跳转地址
+              value: "/archives"
+              placeholder: 请输入卡片单击跳转地址
+        - $formkit: group
+          name: card4
+          label: 卡片4
+          value:
+          children:
+            - $formkit: repeater
+              name: icons
+              label: 图标
+              value: []
+              max: 4
+              min: 1
+              children:
+                - $formkit: select
+                  name: icon
+                  label: 图标
+                  options:
+                    - label: 音乐
+                      value: fa-solid fa-headphones
+                    - label: 图片
+                      value: fa-regular fa-image
+                    - label: 影视
+                      value: fa-solid fa-film
+                    - label: 游戏
+                      value: fa-solid fa-gamepad
+                    - label: 书籍
+                      value: fa-solid fa-book
+                    - label: 工具
+                      value: fa-solid fa-screwdriver-wrench
+                - $formkit: url
+                  name: url
+                  label: 跳转链接
+            - $formkit: text
+              name: smalltitle
+              label: 小标题
+              value: "分享"
+            - $formkit: text
+              name: bigtitle
+              label: 大标题
+              value: "我的推荐"
+            - $formkit: url
+              name: jumpurl
+              label: 跳转地址
+              placeholder: 请输入卡片单击跳转地址 
+        - $formkit: group
+          name: card5
+          label: 卡片5
+          value:
+          children:
+            - $formkit: repeater
+              name: icons
+              label: 图标
+              value: []
+              max: 2
+              children:
+                - $formkit: select
+                  name: icon
+                  label: 图标
+                  options:
+                    - label: 电子邮箱
+                      value: fa-regular fa-envelope
+                    - label: 微信
+                      value: fa-brands fa-weixin
+                    - label: rss
+                      value: fa-solid fa-rss
+                    - label: 腾讯 QQ
+                      value: fa-brands fa-qq
+                    - label: 新浪微博
+                      value: fa-brands fa-weibo
+                    - label: 知乎
+                      value: fa-brands fa-zhihu
+                    - label: 哔哩哔哩
+                      value: fa-brands fa-bilibili
+                    - label: GitHub
+                      value: fa-brands fa-github
+                    - label: GitLab
+                      value: fa-brands fa-square-gitlab
+                    - label: 博客园
+                      value: fa-solid fa-blog
+                    - label: 抖音 / TikTok
+                      value: fa-brands fa-tiktok
+                    - label: Telegram
+                      value: fa-brands fa-telegram
+                    - label: Facebook
+                      value: fa-brands fa-facebook
+                    - label: Instagram
+                      value: fa-brands fa-instagram
+                    - label: LinkedIn
+                      value: fa-brands fa-linkedin
+                    - label: Twitter
+                      value: fa-brands fa-twitter
+                    - label: Slack
+                      value: fa-brands fa-slack
+                    - label: Discord
+                      value: fa-brands fa-discord
+                    - label: YouTube
+                      value: fa-brands fa-youtube
+                    - label: Steam
+                      value: fa-brands fa-steam
+                    - label: Dribbble
+                      value: fa-brands fa-dribbble
+                - $formkit: url
+                  name: url
+                  label: 链接
+            - $formkit: text
+              name: smalltitle
+              label: 小标题
+              value: "社交"
+            - $formkit: text
+              name: bigtitle
+              label: 大标题
+              value: "联系方式"
+            - $formkit: url
+              name: jumpurl
+              label: 跳转地址
+              value: ""
+              placeholder: 请输入卡片单击跳转地址       
+        - $formkit: group
+          name: card6
+          label: 卡片6
+          value:
+          children:
+            - $formkit: textarea
+              name: text
+              label: 文字
+              value: "点击<br>给我 <span>留言吧.</span>"
+              help: 支持html语法
+            - $formkit: url
+              name: jumpurl
+              label: 跳转地址
+              value: "/comments"
+              placeholder: 请输入卡片单击跳转地址
+    
+    - group: photo
+      label: 图库
+      formSchema:
+        - $formkit: text
+          name: name
+          label: 大标题
+          value: "我 的 图 库"
+        - $formkit: text
+          name: leftName
+          label: 左侧图片分组代码
+          value: "photo-group-GgkaL"
+          help: 在【图库】里选中【分组】，当前浏览器地址框photo-group=(photo-group-GgkaL)括号里的内容为分组代码
+        - $formkit: text
+          name: centerName
+          label: 中间图片分组代码
+          value: "photo-group-LRjXG"
+          help: 在【图库】里选中【分组】，当前浏览器地址框photo-group=(photo-group-GgkaL)括号里的内容为分组代码
+        - $formkit: text
+          name: rightName
+          label: 右侧图片分组代码
+          value: "photo-group-sVHkJ"
+          help: 在【图库】里选中【分组】，当前浏览器地址框photo-group=(photo-group-GgkaL)括号里的内容为分组代码
+
+
+    - group: credentials
+      label: 自述
+      formSchema:
+        - $formkit: textarea
+          name: zishu
+          label: 个人自述
+          value: "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;每一天站在讲台上，面对那一双双求知若渴的眼睛，我都深知自己肩负的责任与使命。虽然教育之路充满挑战，但正是这些挑战，铸就了更加坚韧和充满智慧的我。我鼓励自己，要持续保持对教育的热爱与激情，不断追求卓越，勇于创新教学方法。记住，每一次耐心的解答，每一次鼓励的微笑，都是在孩子们心中播下希望的种子。"
+          help: 支持HTML语法
+        - $formkit: group
+          name: card1
+          label: 工作经历
+          value:
+          children:
+            - $formkit: text
+              name: title
+              label: 标题
+              value: "工作经历"
+            - $formkit: repeater
+              name: typed
+              label: 显示的文字
+              value: [ ]
+              children:
+                - $formkit: text
+                  name: time
+                  label: 时间
+                  value: ""
+                - $formkit: text
+                  name: bigtitle
+                  label: 工作地点
+                  value: ""
+                - $formkit: text
+                  name: smalltitle
+                  label: 工作内容
+                  value: ""
+        - $formkit: group
+          name: card2
+          label: 学习经历
+          value:
+          children:
+            - $formkit: text
+              name: title
+              label: 标题
+              value: "学习经历"
+            - $formkit: repeater
+              name: typed
+              label: 显示的文字
+              value: [ ]
+              children:
+                - $formkit: text
+                  name: time
+                  label: 时间
+                  value: ""
+                - $formkit: text
+                  name: bigtitle
+                  label: 学校名称
+                  value: ""
+                - $formkit: text
+                  name: smalltitle
+                  label: 专业名称
+                  value: ""
+        - $formkit: group
+          name: card3
+          label: 自定义卡片
+          value:
+          children:
+            - $formkit: attachment
+              name: img
+              label: 图片
+              value: "https://img.picui.cn/free/2024/07/02/6683f8cb99ff4.png"
+              placeholder: 请输入图片路径
+            - $formkit: text
+              name: smalltitle
+              label: 小标题
+              value: "关于"
+            - $formkit: text
+              name: bigtitle
+              label: 大标题
+              value: "我的信息"
+            - $formkit: url
+              name: jumpurl
+              label: 跳转地址
+              value: "/about"
+              placeholder: 请输入卡片单击跳转地址
+
+
+    - group: comments
+      label: 留言
+      formSchema:
+        - $formkit: textarea
+          name: text1
+          label: 自定义内容1
+          help: 支持HTML语法
+        - $formkit: textarea
+          name: text2
+          label: 自定义内容2
+          help: 支持HTML语法
+    - group: links
+      label: 友链
+      formSchema:
+        - $formkit: text
+          name: smalltitle
+          label: 小标题
+          value: "友情链接"
+        - $formkit: text
+          name: bigtitle
+          label: 大标题
+          value: " 我和我的小伙伴们 "
+
+
+
+        - $formkit: textarea
+          name: text
+          label: 底部自定义内容
+          help: 支持HTML语法
+        
+
+    - group: about
+      label: 关于
+      formSchema:
+        - $formkit: text
+          name: title
+          label: 标题
+          value: " 关 于 我 "
+        - $formkit: textarea
+          name: content
+          label: 我的介绍
+          value: <p>你好，很高兴认识你👋</p><h1>我叫 小橙同学</h1>是一名 小学教师、旅游探秘者、博主
+          help: 支持 HTML 语法
+        - $formkit: attachment
+          name: authorCareersPhoto
+          label: 图片
+          value: 
+        - $formkit: textarea
+          name: zuoyouming
+          label: 我的介绍
+          value: <h3>座右铭</h3><h1>日落归山海，</h1><h1 class="text-white">山海藏深意。</h1>
+          help: 支持 HTML 语法
+        - $formkit: group
+          name: music
+          label: 音乐偏好
+          value:
+            music_tips: 音乐偏好
+            music_title: 粤语经典、民谣、DJ
+            music_link: /music
+            music_bg: https://cdn.anorange.icu/70172.jpg
+          children:
+            - $formkit: text
+              name: music_tips
+              label: 提示文字
+              placeholder: 请输入内容
+            - $formkit: text
+              name: music_title
+              label: 偏好标题
+              placeholder: 请输入内容
+            - $formkit: text
+              name: music_link
+              label: 按钮链接
+              placeholder: 请输入内容
+            - $formkit: attachment
+              name: music_bg
+              label: 背景图片
+              placeholder: 请输入内容
+        - $formkit: group
+          name: map
+          label: 地图相关配置
+          value:
+            StrengthenTitle:
+            background:
+          children:
+            - $formkit: text
+              name: StrengthenTitle
+              label: 居住地
+              placeholder: 请输入内容
+            - $formkit: attachment
+              name: background
+              label: 地图图片背景
+              placeholder: 请输入内容
+        - $formkit: textarea
+          name: xllc
+          label: 心路历程
+          value: 心路历程<br><h1 class="text-white">为什么建站？</h1><br>创建这个站的时候，想要就是能够有一个自己能够<b class="text-primary">积累知识、积累兴趣</b>的地方。和他人分享，会让这些成为积累和沉淀。如果能够帮助到更多的人，帮助更多人解决问题，那一定是非常棒的事情。分享这件事我从很早就开始了，起初做的微信公众号，现在做的网站。因为我比较喜欢研究数码和软件，想要探究在互联网上的事物是如何被创造和发展。网络给我带来了非常多的知识和眼界，我也想力所能及的分享一些我生活的琐碎知识。与大多数垂直类的技术博客不同，这里的种类会非常的繁杂，有<b class="text-primary">技能的教程干货</b>、有<b class="text-primary">生活上的吐槽和妙招</b>、有<b class="text-primary">话题上的思考和想法</b>。一般我研究什么、发现了什么都会分享在这里。<br> 这些就是创造这个小站的本意，<b class="text-primary">也是我分享生活的方式</b>。有幸能和你相遇在这里，相信我们能共同留下一段美好记忆。
+          help: 支持 HTML 语法    
+
+
+    - group: footer
+      label: 页脚
+      formSchema:
+        - $formkit: attachment
+          name: logo
+          label: 页脚LOGO
+          value: "https://img.picui.cn/free/2024/07/02/6683f3224ea7a.png"
+        - $formkit: menuRadio
+          name: Menu
+          label: 菜单选项
+          help: 默认只有主菜单，可前往【外观】—>【菜单】新建菜单组
+          value: ""
+        - $formkit: text
+          name: icp
+          label: ICP 备案
+          placeholder: 请输入 ICP 备案号
+          help: 格式：赣ICP备 xxxxxxxx 号
+        - $formkit: attachment
+          name: icpimg
+          label: ICP 备案图标
+          value: "https://dauth.i1r.cc/images/icp.png"
+        - $formkit: url
+          name: icpurl
+          label: ICP 备案跳转链接
+          value: "https://beian.miit.gov.cn/#/Integrated/index"
+        - $formkit: text
+          name: gongan
+          label: 公安备案
+          placeholder: 请输入公安备案号
+          help: 格式：赣公网安备 xxxxxxxx 号
+        - $formkit: attachment
+          name: gonganimg
+          label: 公安备案图标
+          value: "https://img.picui.cn/free/2024/07/07/66897b20c6829.png"
+        - $formkit: url
+          name: gonganurl
+          label: 公安备案跳转链接
+          value: "https://beian.mps.gov.cn/#/query/webSearch"
+        
+    - group: other
+      label: 其他
+      formSchema:
+        - $formkit: group
+          name: error_404
+          label: 404 页面
+          value:
+            subtitle: 😭  您访问页面找不到啦（404）
+            email: 
+          children:
+            - $formkit: text
+              name: subtitle
+              label: 标题
+            - $formkit: text
+              name: email
+              label: 邮箱
+        - $formkit: group
+          name: error_500
+          label: 500 页面
+          value:
+            subtitle: 💩  服务器忙不过来了（500）
+            email: 
+          children:
+            - $formkit: text
+              name: subtitle
+              label: 标题
+            - $formkit: text
+              name: email
+              label: 邮箱
+        
+        
+        
+
+        

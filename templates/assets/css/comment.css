@@ -1,0 +1,36 @@
+
+  .juli {
+    padding-top: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 15px;
+  }
+  .commentroot {
+
+    --halo-comment-widget-base-color: #fbf9f9;
+    --halo-comment-widget-base-info-color: #bcbcbc;
+    --halo-comment-widget-base-border-radius: 15px;
+    --halo-comment-widget-base-font-size: ;
+    --halo-comment-widget-base-line-height: ;
+    --halo-comment-widget-base-font-family: ;
+    --halo-comment-widget-component-avatar-rounded: 15px;
+    --halo-comment-widget-component-avatar-size: 50px;
+    --halo-comment-widget-component-form-input-bg-color: ;
+    --halo-comment-widget-component-form-input-color: ;
+    --halo-comment-widget-component-form-input-border-color: ;
+    --halo-comment-widget-component-form-input-border-color-focus: ;
+    --halo-comment-widget-component-form-input-box-shadow-focus: ;
+    --halo-comment-widget-component-form-button-login-bg-color: ;
+    --halo-comment-widget-component-form-button-login-bg-color-hover: ;
+    --halo-comment-widget-component-form-button-login-border-color: ;
+    --halo-comment-widget-component-form-button-submit-bg-color: ;
+    --halo-comment-widget-component-form-button-submit-color: #ffffff;
+    --halo-comment-widget-component-form-button-submit-border-color: ;
+    --halo-comment-widget-component-form-button-submit-border-color-hover: #070707;
+    --halo-comment-widget-component-form-button-emoji-color: ;
+    --halo-comment-widget-component-comment-item-action-bg-color-hover: ;
+    --halo-comment-widget-component-comment-item-action-color-hover: ;
+    --halo-comment-widget-component-pagination-button-bg-color-hover: ;
+    --halo-comment-widget-component-pagination-button-bg-color-active: ;
+    --halo-comment-widget-component-pagination-button-border-color-active: ;
+  }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+    <th:block th:fragment="header">
+        <header class="header-area">
+            <div class="container">
+                <div class="gx-row d-flex align-items-center justify-content-between">
+                    <!-- <左侧logo> -->
+                    <a href="/" class="logo">
+                        <img th:src="${theme.config.nav.logo}" alt="Logo">
+                    </a>
+                    <!-- <菜单栏> -->
+                    <div th:with="menu = ${menuFinder.getByName(theme.config.nav.Menu)}" class="navbar">
+                        <ul th:with="menuItems = ${menu.menuItems}" class="menu">
+                          <li th:each="menuItem : ${menuItems}">
+                            <a
+                              th:href="@{${menuItem.status.href}}"
+                              th:text="${menuItem.status.displayName}"
+                              th:target="${menuItem.spec.target?.value}"
+                            >
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    <!-- <右侧图标> -->
+                    <ul>
+                    <a class="site-page social-icon search" href="javascript:SearchWidget.open();" rel="external nofollow" title="站内搜索" data-pjax-state="">
+                        <i class="fa-solid fa-magnifying-glass" style="font-size:20px;color:white;"></i>
+                    </a>&nbsp;&nbsp;&nbsp;
+                    <a href="/console" title="后台登录">
+                        <i class="fa-regular fa-circle-user" style="font-size:20px;color:white;"></i>
+                    </a>
+                </ul>
+                    
+                </div>
+            </div>
+        </header>
+    </th:block>
+    </html>

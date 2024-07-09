@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+    <th:block th:fragment="banners">
+        <section class="about-area">
+            <div class="container">
+                <div class="row">
+                    <!-- <个人信息卡片> -->
+                    <div class="col-md-6" data-aos="zoom-in">
+                        <div class="about-me-box shadow-box">
+                            <a class="overlay-link" th:href="${theme.config.banner.Information.jumpurl}"></a>
+                            <img th:src="${theme.config.banner.Information.backgroundimg}" alt="BG" class="bg-img">
+                            <div class="img-box">
+                                <img th:src="${theme.config.banner.Information.headimg}">
+                            </div>
+                            <div class="infos">
+                                <h4>[[${theme.config.banner.Information.toptitle}]]</h4>
+                                <h1>[[${theme.config.banner.Information.nickname}]]</h1>
+                                <p th:utext="${theme.config.banner.Information.geyantitle}"></p>
+                                <a th:href="${theme.config.banner.Information.jumpurl}" class="about-btn">
+                                    <img th:src="@{/assets/images/icon.svg}" alt="Button">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="about-credentials-wrap">
+                            <!-- <滚动条公告> -->
+                            <div data-aos="zoom-in">
+                                <div class="banner shadow-box">
+                                    <div class="marquee">
+                                        <div>
+                                          <span><img th:src="@{/assets/images/star1.svg}" alt="Star">[[${theme.config.banner.eannouncement}]]<img th:src="@{/assets/images/star1.svg}" alt="Star"><b>[[${theme.config.banner.eannouncement}]]</b><img th:src="@{/assets/images/star1.svg}" alt="Star">[[${theme.config.banner.eannouncement}]]<img th:src="@{/assets/images/star1.svg}" alt="Star"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gx-row d-flex gap-24">
+                                <!-- <卡片1> -->
+                                <div data-aos="zoom-in">
+                                    <div class="about-crenditials-box info-box shadow-box h-full">
+                                        <a class="overlay-link" th:href="${theme.config.banner.card1.jumpurl}"></a>
+                                        <img th:src="@{/assets/images/bg1.png}" alt="BG" class="bg-img">
+                                        <img th:src="${theme.config.banner.card1.img}" alt="Sign">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div class="infos">
+                                                <h4>[[${theme.config.banner.card1.smalltitle}]]</h4>
+                                                <h1>[[${theme.config.banner.card1.bigtitle}]]</h1>
+                                            </div>
+                                            <a th:href="${theme.config.banner.card1.jumpurl}" class="about-btn">
+                                                <img th:src="@{/assets/images/icon.svg}" alt="Button">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <卡片2> -->
+                                <div data-aos="zoom-in">
+                                    <div class="about-project-box info-box shadow-box h-full">
+                                        <a class="overlay-link" th:href="${theme.config.banner.card2.jumpurl}"></a>
+                                        <img th:src="@{/assets/images/bg1.png}" alt="BG" class="bg-img">
+                                        <img th:src="${theme.config.banner.card2.img}" alt="My Photos">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div class="infos">
+                                                <h4>[[${theme.config.banner.card2.smalltitle}]]</h4>
+                                                <h1>[[${theme.config.banner.card2.bigtitle}]]</h1>
+                                            </div>
+                                            <a th:href="${theme.config.banner.card2.jumpurl}" class="about-btn">
+                                                <img th:src="@{/assets/images/icon.svg}" alt="Button">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-24">
+                    <div class="col-md-12">
+                        <div class="blog-service-profile-wrap d-flex gap-24">
+                            <!-- <卡片3> -->
+                            <div data-aos="zoom-in">
+                                <div class="about-blog-box info-box shadow-box h-full">
+                                    <a th:href="${theme.config.banner.card3.jumpurl}" class="overlay-link"></a>
+                                    <img th:src="@{/assets/images/bg1.png}" alt="BG" class="bg-img">
+                                    <img th:src="${theme.config.banner.card3.img}" alt="GFonts">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="infos">
+                                            <h4>[[${theme.config.banner.card3.smalltitle}]]</h4>
+                                            <h1>[[${theme.config.banner.card3.bigtitle}]]</h1>
+                                        </div>
+                                        <a th:href="${theme.config.banner.card3.jumpurl}" class="about-btn">
+                                            <img th:src="@{/assets/images/icon.svg}" alt="Button">
+                                        </a>
+    
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <卡片4> -->
+                            <div data-aos="zoom-in" class="flex-1">
+                                <div class="about-services-box info-box shadow-box h-full">
+                                    <img th:src="@{/assets/images/bg1.png}" alt="BG" class="bg-img">
+                                    <ul class="icon-boxes" th:if="${not #lists.isEmpty(theme.config.banner.card4.icons)}"
+                                                           th:with="iconsList = ${theme.config.banner.card4.icons}">
+                                        <li th:each="icons : ${iconsList}">
+                                            <a th:href="${icons.url}">
+                                            <i th:classappend="${icons.icon}"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="infos">
+                                            <h4>[[${theme.config.banner.card4.smalltitle}]]</h4>
+                                            <h1>[[${theme.config.banner.card4.bigtitle}]]</h1>
+                                        </div>
+                                        <a th:href="${theme.config.banner.card4.jumpurl}" class="about-btn">
+                                            <img th:src="@{/assets/images/icon.svg}" alt="Button">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <卡片5> -->
+                            <div data-aos="zoom-in">
+                                <div class="about-profile-box info-box shadow-box h-full">
+                                    <img th:src="@{/assets/images/bg1.png}" alt="BG" class="bg-img">                                    
+                                        <ul th:if="${not #lists.isEmpty(theme.config.banner.card5.icons)}"
+                                            th:with="iconsList = ${theme.config.banner.card5.icons}" class="inner-profile-icons shadow-box">
+                                            <li th:each="icons : ${iconsList}">
+                                                <a th:href="${icons.url}">
+                                                    <i th:classappend="${icons.icon}"></i>
+                                                </a>
+                                            </li>
+                                        </ul>                                    
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="infos">
+                                            <h4>[[${theme.config.banner.card5.smalltitle}]]</h4>
+                                            <h1>[[${theme.config.banner.card5.bigtitle}]]</h1>
+                                        </div>
+                                        <a th:href="${theme.config.banner.card5.jumpurl}" class="about-btn">
+                                            <img th:src="@{/assets/images/icon.svg}" alt="Button">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-24">
+                    <div class="col-md-6" data-aos="zoom-in">
+                            
+                        <div class="about-client-box info-box shadow-box">
+                            <img th:src="@{/assets/images/bg1.png}" alt="BG" class="bg-img">
+                            <div class="clients d-flex align-items-start gap-24 justify-content-center">
+                                <div class="client-item"  th:with="stats = ${siteStatsFinder.getStats()}">
+                                    <h1 th:text="${stats.post}"></h1>
+                                    <p>文章<br>数量</p>
+                                </div>
+
+                                <div class="client-item" th:with="stats = ${siteStatsFinder.getStats()}">
+                                    <h1 th:text="${stats.comment}"></h1>
+                                    <p>评论<br>数量</p>
+                                </div>
+
+                                <div class="client-item" th:with="stats = ${siteStatsFinder.getStats()}">
+                                    <h1 th:text="${stats.visit}"></h1>
+                                    <p>浏览<br>数量</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" data-aos="zoom-in">
+                            
+                        <div class="about-contact-box info-box shadow-box">
+                            <a class="overlay-link" th:href="${theme.config.banner.card6.jumpurl}"></a>
+                            <img th:src="@{/assets/images/bg1.png}" alt="BG" class="bg-img">
+                            <img th:src="@{/assets/images/icon2.png}" alt="Icon" class="star-icon">
+                            <h1 th:utext="${theme.config.banner.card6.text}"></h1>
+                            <a th:href="${theme.config.banner.card6.jumpurl}" class="about-btn">
+                                <img th:src="@{/assets/images/icon.svg}" alt="Button">
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </th:block>
+</html>

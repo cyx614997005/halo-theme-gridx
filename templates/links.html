@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: html(head = null,content = ~{::content},title = ${'友链' + ' - ' + site.title})}">
+
+    <th:block th:fragment="content">
+        <main class="main-homepage">
+            <!-- Header -->
+            <th:block th:replace="~{modules/header :: header}"></th:block>
+            <div class="container">
+                <section class="breadcrumb-area" data-aos="zoom-in">
+                    <div class="container">
+                        <div class="breadcrumb-content aos-init aos-animate" data-aos="fade-up " >
+                            <h3>[[${theme.config.links.smalltitle}]]</h3>
+                            <h1 class="section-heading">
+                                <img th:src="@{/assets/images/star-2.png}">
+                                [[${theme.config.links.bigtitle}]]
+                                <img th:src="@{/assets/images/star-2.png}">
+                            </h1>
+                        </div>
+                    </div>
+                </section>
+            <div class="flink" id="article-container" data-aos="zoom-in">
+                <link rel="stylesheet" th:href="@{/assets/css/flink.css}" />
+                <th:block th:each="group,iterStat : ${groups}">
+                    <h2 th:if="${not #lists.isEmpty(group.spec.displayName)}" class="flink-title">
+                        <a class="headerlink" th:href="'#'+${group.spec.displayName}+'-'+${group.links.size}"
+                           th:title="${group.spec.displayName}+ '('+${group.links.size}+')'"></a>
+                        [[${group.spec.displayName}]] ([[${group.links.size}]])
+                    </h2>
+                    <div class="flink-desc" th:if="${not #strings.isEmpty(#annotations.get(group, 'description'))}">[[${#annotations.get(group, 'description')}]]</div>
+                    <div class="flink-list">
+                        <div class="flink-list-item shadow-box" th:each="link : ${group.links}">
+                            <img class="flink-item-image" th:if="${not #strings.isEmpty(#annotations.get(link, 'siteshot'))}" th:src="${#annotations.get(link,'siteshot')}">
+                            <a class="overlay-link" rel="external nofollow" target="_blank" th:href="${link.spec.url}"
+                               th:title="${link.spec.displayName}">
+                                <img class="flink-list-item a img" th:src="${link.spec.logo}">
+                                <div class="flink-item-info">
+                                    <span class="flink-item-name" th:text="${link.spec.displayName}"></span>
+                                    <span class="flink-item-desc" th:text="${link.spec.description}"
+                                          th:title="${link.spec.description}"></span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </th:block>
+
+                <!-- <自定义内容> -->
+                <div data-aos="zoom-in"  th:if="${not #strings.isEmpty(theme.config.links.text)}" th:utext="${theme.config.links.text}"></div>
+                
+            </div><br><hr><br>
+            <!-- 评论 -->
+            <div data-aos="zoom-in" class="col-md-12">
+            <div id="page-comment" th:if="${haloCommentEnabled}"  class="commentroot shadow-box juli">
+                <div style="color:white;"><i class="fa-regular fa-comments"></i><span style="font-size:20px;"> 评论</span><a href="/privacy" style="float: right;font-size: 13px;">隐私政策</a></div><br>
+                  <halo:comment
+                        group="content.halo.run"
+                        kind="SinglePage"
+                        th:attr="name=${pluginName}"
+                   />
+                <link rel="stylesheet" th:href="@{/assets/css/comment.css}" />
+            </div>
+        </div>
+            <!-- Footer -->
+            <footer th:replace="~{modules/footer :: footer}"></footer>
+        </main>
+    </th:block>
+</html>0

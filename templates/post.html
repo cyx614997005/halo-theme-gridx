@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{layout :: html(head = null,content = ~{::content},title = null)}"
+>
+    <th:block th:fragment="content">
+      <main class="main-workdetails-page">
+        <!-- Header -->
+        <th:block th:replace="~{modules/header :: header}"></th:block>
+        <!-- <文章内容> -->
+        <section class="breadcrumb-area">
+          <div class="container">
+              <div class="breadcrumb-content aos-init aos-animate" data-aos="fade-up">
+                <!-- <分类标签> -->
+<span th:each="category : ${post.categories}"
+  th:if="${not #lists.isEmpty(post.categories)}" style="color:#676767"><i class="fa-solid fa-list">  </i>
+<a style="color:#676767" th:href="@{${category.status.permalink}}"
+   th:text="${category.spec.displayName}" th:title="${category.spec.displayName}">
+</a>
+</span>&nbsp;&nbsp;&nbsp;&nbsp;
+<span h:if="${not #lists.isEmpty(post.tags)}">
+    <a th:each="tag : ${post.tags}"
+       th:href="@{${tag.status.permalink}}"
+       th:title="${tag.spec.displayName}">
+        <span style="color:#676767"><i class="fa-solid fa-tag"></i>  [[${tag.spec.displayName}]]</span>
+    </a>
+</span>
+<!-- <文章标题> -->
+                  <h1 class="section-heading">[[${post.spec.title}]]</h1>
+                  <div>
+                    <i class="fa-solid fa-pen-nib"> [[${post.owner.displayName}]]</i>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="post-meta-wordcount"
+                              th:with="wordCount = ${#strings.length(post.content.content)}">
+                              <i class="fa-regular fa-file-word"></i>
+                            <span class="post-meta-label">  </span>
+                            <span class="word-count" th:text="${{wordCount}}">  </span>字
+                            <span class="post-meta-separator"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <i class="fa-regular fa-clock"></i>
+                            <span class="post-meta-label">  </span>
+                            <span>  [[${wordCount / 400}]] 分钟</span>
+                        </span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="post-meta-date">
+                          <i class="fa-regular fa-calendar-days"></i>
+                          <time th:attr="datetime=${#dates.format(post.spec.publishTime, 'yyyy-MM-dd')}"
+                                th:text="${#dates.format(post.spec.publishTime,'yyyy/MM/dd')}"
+                                th:title="${#dates.format(post.spec.publishTime,'yyyy-MM-dd HH:mm:ss')}">
+                          </time>
+                      </span>
+
+                  </div>
+              </div>
+          </div>
+      </section>
+      <section class="postsauto juli1" data-aos="zoom-in">
+        <article th:utext="${post.content.content}"></article><br><hr><br>
+        <style>  
+        .postsauto {
+          margin:auto;
+          width: 1300px;
+          height: auto;
+          margin-top: 30px;
+         }
+        .juli1 {
+          padding-top: 30px;
+          padding-left: 35px;
+          padding-right: 35px;
+          padding-bottom: 30px;
+        }</style>
+      </section>
+        <!-- 评论 -->
+        <div class="container">
+          <div data-aos="zoom-in" class="col-md-12 aos-init aos-animate">
+              <div id="page-comment" th:if="${haloCommentEnabled}"  class="commentroot shadow-box juli">
+                  <div style="color:white;"><i class="fa-regular fa-comments"></i><span style="font-size:20px;"> 评论</span><a href="/privacy" style="float: right;font-size: 13px;">隐私政策</a></div><br>
+                    <halo:comment
+                          group="content.halo.run"
+                          kind="Post"
+                          th:attr="name=${post.metadata.name}"
+                     />
+                  <link rel="stylesheet" th:href="@{/assets/css/comment.css}" />
+              </div>
+          </div>
+      </div>
+        <!-- Footer -->
+        <footer th:replace="~{modules/footer :: footer}"></footer>
+      </main>
+  </th:block>
+</html>

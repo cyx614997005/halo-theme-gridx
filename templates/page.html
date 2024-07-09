@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{layout :: html(head = null,content = ~{::content},title = ${singlePage.spec.title + ' - ' + site.title})}"
+>
+  <th:block th:fragment="content">
+    <main class="main-aboutpage">
+    <!-- Header -->
+    <th:block th:replace="~{modules/header :: header}"></th:block>
+  <section class="postsauto juli1" data-aos="zoom-in">
+    <article>
+      <div th:utext="${singlePage.content.content}"> </div>
+    </article><br><hr><br>
+    <style>  
+    .postsauto {
+      margin:auto;
+      width: 1300px;
+      height: auto;
+      margin-top: 30px;
+     }
+    .juli1 {
+      padding-top: 30px;
+      padding-left: 35px;
+      padding-right: 35px;
+      padding-bottom: 30px;
+    }</style>
+  </section>
+  <!-- 评论 -->
+  <div class="container">
+<div data-aos="zoom-in" class="col-md-12 aos-init aos-animate">
+  <div id="page-comment" th:if="${haloCommentEnabled}"  class="commentroot shadow-box juli">
+      <div style="color:white;"><i class="fa-regular fa-comments"></i><span style="font-size:20px;"> 评论</span><a href="/privacy" style="float: right;font-size: 13px;">隐私政策</a></div><br>
+        <halo:comment
+              group="content.halo.run"
+              kind="SinglePage"
+              th:attr="name=${singlePage.metadata.name}"
+         />
+      <link rel="stylesheet" th:href="@{/assets/css/comment.css}" />
+  </div>
+</div>
+</div>
+    <!-- Footer -->
+    <footer th:replace="~{modules/footer :: footer}"></footer>
+  </main>
+  </th:block>
+</html>

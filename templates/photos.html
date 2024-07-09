@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: html(head = null,content = ~{::content},title = ${'我的图库' + ' - ' + site.title})}">
+
+    <th:block th:fragment="content">
+        <main class="main-aboutpage">
+            <!-- Header -->
+            <th:block th:replace="~{modules/header :: header}"></th:block>
+            <!-- Photos -->
+            <section class="projects-area">
+                <div class="container">
+                    <div class="row">
+                        <!-- <左侧图片组> -->
+                        <div class="col-md-4"data-aos="zoom-in" >
+                            <ul>
+                                <li th:each="photo : ${photoFinder.listBy(theme.config.photo.leftName)}" style="display: inline;">
+                                    <div data-aos="zoom-in" class="aos-init aos-animate">
+                                        <div class="project-item shadow-box">
+                                            <img th:src="@{/assets/images/bg1.png}"class="bg-img">
+                                            <div class="project-img">
+                                                <img th:src="${photo.spec.url}" th:alt="${photo.spec.displayName}">
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between">
+                                                <div class="project-info">
+                                                    <p th:text="${photo.spec.description}"></p>
+                                                    <h1 th:text="${photo.spec.displayName}"></h1>
+                                                </div>
+                                                    <img th:src="@{/assets/images/icon.svg}" alt="Button">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-8" data-aos="zoom-in">
+                            <h1 class="section-heading aos-init aos-animate" data-aos="fade-up"><img th:src="@{/assets/images/star-2.png}" alt="Star">[[${theme.config.photo.name}]]<img th:src="@{/assets/images/star-2.png}" alt="Star"></h1> 
+                            <div class="d-flex align-items-start gap-24">
+                                <!-- <中间图片组> -->
+                                <ul>
+                                    <li th:each="photo : ${photoFinder.listBy(theme.config.photo.centerName)}">
+                                        
+                                            <div class="project-item shadow-box">
+                                                <img th:src="@{/assets/images/bg1.png}" class="bg-img">
+                                                <div class="project-img">
+                                                    <img th:src="${photo.spec.url}" th:alt="${photo.spec.displayName}"  width="1080">
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="project-info">
+                                                        <p th:text="${photo.spec.description}"></p>
+                                                        <h1 th:text="${photo.spec.displayName}"></h1>
+                                                    </div>
+                                                        <img th:src="@{/assets/images/icon.svg}">
+                                                </div>
+                                            </div>       
+                                    </li>
+                                </ul>
+                                <!-- <右侧图片组> -->
+                                <ul>
+                                    <li th:each="photo : ${photoFinder.listBy(theme.config.photo.rightName)}">
+                                            <div class="project-item shadow-box">
+                                                <img th:src="@{/assets/images/bg1.png}" class="bg-img">
+                                                <div class="project-img">
+                                                    <img th:src="${photo.spec.url}" th:alt="${photo.spec.displayName}" width="1080">
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="project-info">
+                                                        <p th:text="${photo.spec.description}"></p>
+                                                        <h1 th:text="${photo.spec.displayName}"></h1>
+                                                    </div>
+                                                        <img th:src="@{/assets/images/icon.svg}">
+                                                </div>
+                                            </div>       
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><br><hr><br>
+                </div>
+            </section>
+            <!-- 评论 -->
+                <div class="container" data-aos="zoom-in">
+            <div  class="col-md-12 aos-init aos-animate">
+                <div id="page-comment" th:if="${haloCommentEnabled}"  class="commentroot shadow-box juli">
+                    <div style="color:white;"><i class="fa-regular fa-comments"></i><span style="font-size:20px;"> 评论</span><a href="/privacy" style="float: right;font-size: 13px;">隐私政策</a></div><br>
+                      <halo:comment
+                            group="content.halo.run"
+                            kind="SinglePage"
+                            th:attr="name=photos"
+                       />
+                    <link rel="stylesheet" th:href="@{/assets/css/comment.css}" />
+                </div>
+            </div>
+        </div>
+             <!-- Footer -->
+             <footer th:replace="~{modules/footer :: footer}"></footer>
+        </main>
+    </th:block>
+</html>
