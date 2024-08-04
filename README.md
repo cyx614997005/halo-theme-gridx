@@ -1,6 +1,6 @@
 <div align="center">
 <!-- 主题Logo -->
-<img width="100px" src="https://img.picui.cn/free/2024/07/02/6683c35eec355.png">
+<img width="100px" src="![image](https://github.com/user-attachments/assets/3ba045a0-e4fe-4151-ad6a-b8c0e8276f57)">
 <!-- 主题名称 -->
 <h1>Halo-Theme-GridX</h1>
 <!-- 快捷导航 -->
