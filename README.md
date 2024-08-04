@@ -1,6 +1,7 @@
+
 <div align="center">
 <!-- 主题Logo -->
-<img width="100px" src="![image](https://github.com/user-attachments/assets/3ba045a0-e4fe-4151-ad6a-b8c0e8276f57)">
+<img width="100px" src="https://ts1.cn.mm.bing.net/th/id/R-C.040dfd20a00901685af85163ad8506dc?rik=yJ2qlra9Rn0%2fpQ&riu=http%3a%2f%2fwww.kuaipng.com%2fUploads%2fpic%2fw%2f2023%2f04-21%2f138730%2fwater_138730_698_698_.png&ehk=soajL864GImDp2pY3%2btQfQBrRoHvmqXMqZP%2fGVk%2f1Bk%3d&risl=&pid=ImgRaw&r=0">
 <!-- 主题名称 -->
 <h1>Halo-Theme-GridX</h1>
 <!-- 快捷导航 -->
