@@ -17,7 +17,7 @@
 
 |  站点名称  |          站点地址           |
 |:------:|:-----------------------:|
-| 小橙子 | https://anorange.icu |
+| 小橙子 | https://anorange.icu/?preview-theme=theme-gridx |
 
 ## ℹ️ 简介
 
